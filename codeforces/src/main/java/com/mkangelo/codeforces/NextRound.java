@@ -1,15 +1,22 @@
-import java.util.*;
-import java.io.*;
+package com.mkangelo.codeforces;
 
-public class TheatreSquare {
-    public static void main(String[] args) {
+import java.io.*;
+import java.util.*;
+
+
+public class NextRound {
+    public static void main(String[] args){
         FScanner fs = new FScanner();
-        double n = fs.nextInt(), m = fs.nextInt(), a = fs.nextInt();
-        long right = (long) Math.ceil((double) n/a);
-        long down = (long) Math.ceil((double) m/a);
-        long ans = right * down;
+        int n = fs.nextInt(), k = fs.nextInt(); // participants and min
+        FScanner fsa = new FScanner();
+        int[] array = fsa.readArray(n);
+        int ans = 0;
+        for(int i=0; i<n; i++){
+            if(array[i] > k) ans++;
+        }
         System.out.println(ans);
     }
+    
     static class FScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
